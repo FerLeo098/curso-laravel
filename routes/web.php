@@ -1,18 +1,13 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SignupController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    $person = [
-        "name" => "Leo",
-        "email" => "fernandoleonel.gonzalez@axarnet.es"
-    ];
+Route::get('/', [HomeController::class, 'index']);
 
-    dump($person);
-    return view('welcome');
-});
+Route::get('/signup', [SignupController::class, 'create']);
 
-Route::get('/about', function() {
-    return view('about');
-});
+Route::get('/login', [LoginController::class, 'create']);
